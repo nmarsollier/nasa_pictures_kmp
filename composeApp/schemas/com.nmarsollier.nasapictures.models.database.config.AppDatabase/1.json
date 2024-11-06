@@ -1,0 +1,85 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "c47a510f6c29fc0c41929bdd58c9ab8f",
+    "entities": [
+      {
+        "tableName": "images",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`identifier` TEXT NOT NULL, `date` TEXT NOT NULL, `day` TEXT NOT NULL, `image` TEXT NOT NULL, `url` TEXT NOT NULL, `lat` REAL NOT NULL, `lon` REAL NOT NULL, PRIMARY KEY(`identifier`))",
+        "fields": [
+          {
+            "fieldPath": "identifier",
+            "columnName": "identifier",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "day",
+            "columnName": "day",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lon",
+            "columnName": "lon",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "identifier"
+          ]
+        }
+      },
+      {
+        "tableName": "dates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "fields": [
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "date"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c47a510f6c29fc0c41929bdd58c9ab8f')"
+    ]
+  }
+}

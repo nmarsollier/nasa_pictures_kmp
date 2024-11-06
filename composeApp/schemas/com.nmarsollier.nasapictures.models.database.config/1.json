@@ -1,0 +1,72 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "88d6cb8637e50e45bdb804b3cba6b273",
+    "entities": [
+      {
+        "tableName": "dates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` TEXT PRIMARY KEY NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "date"
+          ]
+        }
+      },
+      {
+        "tableName": "images",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`identifier` TEXT PRIMARY KEY NOT NULL, `date` TEXT , `day` TEXT, `image` TEXT, `lat` NUMERIC, `lon` NUMERIC )",
+        "fields": [
+          {
+            "fieldPath": "identifier",
+            "columnName": "identifier",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "day",
+            "columnName": "day",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "NUMERIC"
+          },
+          {
+            "fieldPath": "lon",
+            "columnName": "lon",
+            "affinity": "NUMERIC"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "identifier"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '88d6cb8637e50e45bdb804b3cba6b273')"
+    ]
+  }
+}
