@@ -42,7 +42,6 @@ sealed interface MainAction {
 
 class HomeViewModel(
     private val dateDao: DatesEntityDao,
-    private val dateRepository: DatesEntityDao,
     private val coilUtils: CoilUtils,
     private val fetchDatesUseCase: FetchDatesUseCase,
     private val homeScreenUpdater: HomeScreenUpdater,
@@ -71,7 +70,7 @@ class HomeViewModel(
     }
 
     private fun loadDates() = viewModelScope.launch(Dispatchers.IO) {
-        HomeState.Ready(dateRepository.findAll(0, PAGE_SIZE).asResultPage()).sendToState()
+        HomeState.Ready(dateDao.findAll(0, PAGE_SIZE).asResultPage()).sendToState()
     }
 
     private suspend fun List<DatesEntity>?.asResultPage(): List<ExtendedDateValue> =
