@@ -1,6 +1,8 @@
 package com.nmarsollier.nasapictures.ui.imagesList
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -14,6 +16,7 @@ import com.nmarsollier.nasapictures.common.ui.EmptyView
 import com.nmarsollier.nasapictures.common.ui.ErrorView
 import com.nmarsollier.nasapictures.common.ui.LoadingView
 import com.nmarsollier.nasapictures.models.extendedDate.ExtendedDateValue
+import com.nmarsollier.nasapictures.res.AppColors
 import com.nmarsollier.nasapictures.ui.home.HomeScreenUpdater
 import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel
@@ -45,11 +48,12 @@ fun ImagesListScreen(
         null -> Unit
     }
 
-    Scaffold(topBar = {
-        ImagesListMenu(date) {
-            homeScreenUpdater.updateScreen()
-        }
-    }) {
+    Scaffold(
+        topBar = {
+            ImagesListMenu(date) {
+                homeScreenUpdater.updateScreen()
+            }
+        }) {
         Box(modifier = Modifier.padding(it)) {
             when (val st = state) {
                 is ImagesListState.Ready -> {
