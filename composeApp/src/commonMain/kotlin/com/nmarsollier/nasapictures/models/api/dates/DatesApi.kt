@@ -9,7 +9,6 @@ class DatesApi(
     private val baseUrl: String,
 ) {
     suspend fun listDates(): List<DateValue> {
-        println("${baseUrl}api/enhanced/all")
         return client.get("${baseUrl}api/enhanced/all").body()
     }
 }

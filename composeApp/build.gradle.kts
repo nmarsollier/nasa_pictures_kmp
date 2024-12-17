@@ -58,7 +58,6 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
-            implementation(libs.ktor.ktor.serialization.kotlinx.json)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor3)
             implementation(libs.androidx.room.runtime)

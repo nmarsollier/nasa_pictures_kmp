@@ -24,9 +24,7 @@ fun DatesListContent(
             count = dates.size,
             key = { dates[it].date }
         ) { index ->
-            dates[index].let {
-                DateItemView(it, reduce)
-            }
+            DateItemView(dates[index], reduce)
         }
     }
 }
